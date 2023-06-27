@@ -1,0 +1,9 @@
+.cambiarTipo {
+  display: block; /*Propiedad CSS que indica qué tipo de elemento es*/
+  margin-bottom: 16px;
+  margin-top: 5px;
+}
+
+textarea {
+  resize: none; /*Impide que el usuario pueda cambiar el tamaño del textarea*/
+}

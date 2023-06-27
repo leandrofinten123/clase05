@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Clase 05</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Formularios</h2>
+        <p>
+          Los formularios son elementos que permiten recopilar información del
+          usuario del sitio web
+          <br />
+          Permite que el usuario ingrese un dato que después será utiliza por un
+          Lenguaje de Programación.
+          <br />
+          Código HTML -> Permite indicar qué datos recopilar
+          <br />
+          Código del Lenguaje de Programación -> Permite indicar qué hacer con
+          esos datos recopilados
+          <br />
+          PHP es un Lenguaje de Programación que se comunica con los Servidores.
+          Para usar PHP es necesario tener un Servidor.
+        </p>
+        <!-- 
+          Etiqueta form => Permite crear un formulario 
+          atributo action => tiene la ruta al archivo php que tiene el código que va a utilizar los datos del formulario
+          atributo method => permite declarar cómo van a viajar los datos
+            => GET - Los datos del formulario viajan visibles en la barra de navegación. Sólo se pueden mandar hasta 250 caracteres. Sólo se usa para barras de búsqueda
+            => POST - Los datos no viajan visibles en la barra de navegación. Sin límite de envío de datos. Para todo lo que no sea una barra de búsqueda
+          Para enviar archivos a Lenguajes de Programación que trabajan con servidores (back-end) es necesario agregar el atributo enctype="multipart/form-data"   
+        -->
+        <form action="php/codigo.php" method="post" enctype="multipart/form-data">
+          <!-- 
+            Input => Elemento que permite que el usuario ingrese datos
+            Atributo de etiqueta === Modificador de etiqueta
+            Label => Permite dar contexto a un input
+              -> atributo for
+                => Vincula a la etiqueta label con el input cuyo atributo id coincida con el for
+                => Accesibilidad   
+          -->
+          <label for="nombre">Nombre:</label>
+          <input
+            type="text"
+            name="nombre"
+            id="nombre"
+            class="cambiarTipo"
+            pattern="[A-z ]{2,50}"
+            title="Sólo letras"
+          />
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" class="cambiarTipo" />
+          <!-- required -->
+
+          <!-- 
+            Validación del Dato (concepto de programación)
+              => Trabajo que se realiza para asegurarse que el programa tiene el dato que necesita
+              => atributo type -> valida el tipo de dato que el usuario debe ingresar
+              => atributo pattern -> permite ingresar una expresión regular para validar los datos del campo
+                -> RegExp (Regular Expression) - Es un código (cadena de caracteres) que el navegador utiliza para comparar con los datos ingresados. Sólo pueden comprobar formato
+                  => [A-z ]{2,50} - Sólo se puede escribir letras mayúsculas y minúsculas. Puede haber espacios. No se pueden poner menos de 2 caracteres ni más de 50
+              => required -> Impide el envío del formulario si no se completa el campo
+           -->
+
+          <h3>Elementos de Selección</h3>
+          <p>
+            En los elementos del selección el usuario responde a la pregunta
+            ¿Querés mandar este dato?.
+            <br />
+            Si selecciona, responde que sí.
+            <br />
+            Si no selecciona, responde que no.
+            <br />
+            El atributo value se usa para indicar qué dato se manda cuando el
+            usuario responde que sí.
+          </p>
+          <h4>input:checkbox</h4>
+          <p>
+            Elemento de selección múltiple. Permiten seleccionar uno, todos o
+            ninguno
+          </p>
+          <label for="tortuga">Tortuga:</label>
+          <input type="checkbox" name="animales" id="tortuga" value="tortuga" />
+          <label for="perro">Perro</label>
+          <input type="checkbox" name="animales" id="perro" value="perro" />
+          <label for="gato">Gato:</label>
+          <input type="checkbox" name="animales" id="gato" value="gato" />
+
+          <!-- 
+            [animales]
+              => [gato]
+              => [gato, perro]
+              => [gato, perro, tortuga]
+              => [perro, tortuga]
+              => []
+           -->
+
+          <h4>input:radio</h4>
+          <p>
+            Elementos de selección simple. Permite sólo la selección de uno de
+            los elementos
+          </p>
+          <label for="nueva">Nueva Web:</label>
+          <input
+            type="radio"
+            name="servicio"
+            id="nueva"
+            value="nueva"
+            checked
+          />
+          <label for="modificar">Modificar Web:</label>
+          <input
+            type="radio"
+            name="servicio"
+            id="modificar"
+            value="modificar"
+          />
+
+          <!-- 
+            [servicio - sólo puede tener uno]
+              => [nueva]
+              => [modificar]
+              => []
+           -->
+
+          <h4>select</h4>
+          <select name="paises" id="paises">
+            <option value="argentina">Argentina</option>
+            <option value="brasil">Brasil</option>
+            <option value="chile">Chile</option>
+          </select>
+
+          <h3>Agregar archivos</h4>
+          <label for="archivo">Agregar archivo:</label>
+          <input type="file" name="archivo" id="archivo" class="cambiarTipo" multiple>
+
+          <label for="comentarios">Dejanos tu consulta:</label>
+          <textarea name="comentarios" id="comentarios" cols="30" rows="10" class="cambiarTipo" maxlength="250"></textarea>
+
+          <!-- <button type="submit">Enviar</button> -->
+          <input type="submit" value="Enviar" class="cambiarTipo" />
+        </form>
+        <!-- 
+            Tipos de Elemento
+              => Elemento de Bloque - Ocupa el 100% del contenedor, fuerza salto de línea y se puede modificar ancho (width) y alto (height)
+              => Elemento de Línea - Ocupa sólo el tamaño de su contenido, no fuerza salto y NO se puede modificar ancho (width) y alto (height)
+              => Elemento de Línea-Bloque - Ocupa sólo el tamaño de su contenido, no fuerza salto y se puede modificar ancho (width) y alto (height)
+           -->
+      </section>
+    </main>
+    <footer>
+      <span>&copy; Copyright - nosotros</span>
+    </footer>
+  </body>
+</html>
